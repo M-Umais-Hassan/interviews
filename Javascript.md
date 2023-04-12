@@ -197,7 +197,7 @@ for(let i of arr) {
 Output: 4,5,6
 ```
 
-## 🟠What will be the output? (related to arrays)
+## 🟠4. What will be the output? (related to arrays)
 
 ```
 let arr = [4,5,6];
@@ -207,3 +207,20 @@ arr.foo = 'Hi';
 ```
 Output: [ 4, 5, 6, foo: 'Hi' ]
 ```
+
+## 5. What will be the output for the input value '{}', 'null' and '[]'? (you can ask about typeof first as well)
+
+```
+const input = {} && null && [];
+
+if(typeof input === 'object') console.log('Object');
+if(typeof input !== 'object') console.log('Not object');
+```
+
+```
+Output:
+Object
+Not object
+```
+
+Note: null also treats as an object in javascript.
