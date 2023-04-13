@@ -2,15 +2,21 @@
 
 Event loop is a run time modal in javascript engine which continuosly checks the callback queue and call stack if there is any task in the call back queue it will check if call stack is empty or not if call stack is empty it will move the task from call back queue to call task. Inside here we have setTimeout kind of call back functions.
 
+<hr />
+
 ## 🟠2. What will run first promise or setTimeout?
 
 Call back function which is attached to promise will run first because it goes in micro task queue and it has higher priority than call back queue.
 Call back queue -> setTimeout
 Micro task queue -> promises (api calls)
 
+<hr />
+
 ## 🟠3. What is hoisitng?
 
 Using a variable before initializing it. Javascript assigns memory to var before run in the execution phase, while let and const goes in temporal dead zone which is not available at global level. So, if we will try to use the variable before initialization var will allowed to do, let and const will not be allowed and it will show up an error of not defined.(var is hoisted)
+
+<hr />
 
 ## 🟠4. Type of scope?
 
@@ -18,9 +24,13 @@ Using a variable before initializing it. Javascript assigns memory to var before
 2. Local scope or function scope
 3. Global scope
 
+<hr />
+
 ## 🟠5. Colusure in javascript?
 
 Colusure is a funtion bundled together to its lexical environment. When we have a function declared inside another function and the inner function is using the variables of outer function. Now, when outer function will return so ideally what should happen is, the inner function should not have the access to the variables anymore because the execution context of outer function is removed as the outer function is returned, but what happens is, javascript actually removes the variables from stack memory as the outer function is returned but put those variables in the heap memory and give reference to that variables to the inner function which is why after the outer function returns inner function still hass access to the variables of outer function. Overall inner function remembers that where it lexically present even its parent is not present and this is all colusure is.
+
+<hr />
 
 ## 🟠6. What is call back hell and how to avoid it?
 
@@ -56,6 +66,8 @@ first()
 })
 ```
 
+<hr />
+
 ## 🔴7. What is call, bind and apply?
 
 It helps us to borrow a function from an object.
@@ -63,10 +75,14 @@ Call: 2 arguments, reference and argument to the functioin
 Apply: Take arguments in the form of array
 Bind: It returns copy of the function rather than the function
 
+<hr />
+
 ## 🟠8. What is this keyword?
 
 This keyword refers to an object.
 this keyword alone at global level refers to the javascript window object.
+
+<hr />
 
 ## 🟠9. What is difference between arrow function and normal function?
 
@@ -103,6 +119,8 @@ let me = {
 };
 ```
 
+<hr />
+
 ## 🟠10. What is difference between spread operator and rest operator?
 
 Spread operator: Use to spread the elements of an array, it will eliminate the elemnts of array and provide as a separate elements that is why it named as spread. Also it makes copy rather than the referencing the same array.
@@ -128,6 +146,8 @@ abc(1,2,3);
 
 Note: Here 1,2,3 will be taken as array in the function arguments rather than variables, due to rest operator
 
+<hr />
+
 # Coding Questions
 
 ## 🟠1. What will be output of this below code? (relevant to spread operator)
@@ -141,6 +161,8 @@ console.log(obj);
 ```
 Output: { '0': 1, '1': 2, '2': 3 }
 ```
+
+<hr />
 
 ## 🟠2. What will be the output of below code? (relevant to promises)
 
@@ -173,6 +195,8 @@ undefined // undefined because finaly does not have any value in the arguments
 8
 ```
 
+<hr />
+
 ## 🟠3. What will be the output? (related to arrays)
 
 ```
@@ -197,6 +221,8 @@ for(let i of arr) {
 Output: 4,5,6
 ```
 
+<hr />
+
 ## 🟠4. What will be the output? (related to arrays)
 
 ```
@@ -207,6 +233,8 @@ arr.foo = 'Hi';
 ```
 Output: [ 4, 5, 6, foo: 'Hi' ]
 ```
+
+<hr />
 
 ## 5. What will be the output for the input value '{}', 'null' and '[]'? (you can ask about typeof first as well)
 
@@ -224,3 +252,5 @@ Not object
 ```
 
 Note: null also treats as an object in javascript.
+
+<hr />
