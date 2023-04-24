@@ -1,3 +1,5 @@
+# <mark>JS Run time environment</mark>
+
 ## What is event loop?
 
 Event loop is a run time modal in javascript engine which continuosly checks the callback queue and call stack if there is any task in the call back queue it will check if call stack is empty or not if call stack is empty it will move the task from call back queue to call task. Inside here we have setTimeout kind of call back functions.
@@ -31,6 +33,8 @@ Using a variable before initializing it. Javascript assigns memory to var before
 Colusure is a funtion bundled together to its lexical environment. When we have a function declared inside another function and the inner function is using the variables of outer function. Now, when outer function will return so ideally what should happen is, the inner function should not have the access to the variables anymore because the execution context of outer function is removed as the outer function is returned, but what happens is, javascript actually removes the variables from stack memory as the outer function is returned but put those variables in the heap memory and give reference to that variables to the inner function which is why after the outer function returns inner function still hass access to the variables of outer function. Overall inner function remembers that where it lexically present even its parent is not present and this is all colusure is.
 
 <hr />
+
+# <mark>Callbacks and promises</mark>
 
 ## What is call back hell and how to avoid it?
 
@@ -67,6 +71,8 @@ first()
 ```
 
 <hr />
+
+# <mark>JS Functions</mark>
 
 ## What is call, bind and apply?
 
@@ -120,6 +126,102 @@ let me = {
 ```
 
 <hr />
+
+## What is function declaration?
+
+```
+function abc() {
+  ...
+}
+```
+
+<hr />
+
+## What is function expression?
+
+```
+const abc = function() {
+  ...
+}
+```
+
+<hr />
+
+## What is anonymous function?
+
+```
+function() {
+  ...
+}
+```
+
+<hr />
+
+## What is first class functions?
+
+When functions are treated like other variables, these are called first class functions.
+
+```
+function square(num) {
+  return num * num;
+}
+
+function displaySquare(fn) {
+  console.log('Square is : ', fn(5));
+}
+
+displaySquare(square); // This is first class function
+```
+
+<hr />
+
+## What is immidiately invoked function expressions (IIFE)?
+
+Calling the funtion with its declaration.
+
+```
+(function abc() {
+  console.log('ABC');
+})();
+```
+
+<hr />
+
+## What is immidiately invoked function expressions (IIFE)?
+
+Calling the funtion with its declaration.
+
+```
+(function abc() {
+  console.log('ABC');
+})();
+```
+
+<hr />
+
+## What is function hoisting?
+
+Whenever we declare a function in javascript it is also hoisted in global object same like the var, but the var gives undefined before initilization but function will call normally even before initialization, before when functions hoisted actually a copy of that function is placed in global object rather then undefined like the var.
+
+<hr />
+
+# <mark>Variables and data types</mark>
+
+## Difference between var, let and const?
+
+TODO: Answer required
+
+## What is variable hoisting?
+
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+
+## Where var hoisted?
+
+Var is hoisted in global object.
+
+## Do let and const hoisted?
+
+Yes but in different object named "Script" which is also called temporal dead zone. As this object is not global so the accessing of let and const will show up reference error.
 
 ## What is difference between spread operator and rest operator?
 
@@ -190,13 +292,15 @@ Throttling implies limiting the number of times a function gets called in a cert
 
 ## Implement code for throattling?
 
+TODO: Answer required
+
 ## Real time use case for throattling?
 
 Infinite loader on scroll, we will need scroll pointer location, so we will throattle the mouse event so that only at specific location we will apply reload method, let say when the scroll is at 200 px above the end of screen call reload function, so it will be like an infinite scroll effect.
 
 # <mark>Coding Questions</mark>
 
-## What will be output of this below code? (relevant to spread operator)
+## What will be output of this below code? <mark>(Spread operator)</mark>
 
 ```
 let arr = [1,2,3];
@@ -212,7 +316,7 @@ console.log(obj);
 
 <hr />
 
-## What will be the output of below code? (relevant to promises)
+## What will be the output of below code? <mark>(Promises)</mark>
 
 ```
 const promise = new Promise((resolve) => resolve(2));
@@ -246,7 +350,7 @@ undefined // undefined because finaly does not have any value in the arguments
 
 <hr />
 
-## What will be the output? (related to arrays)
+## What will be the output? <mark>(Arrays)</mark>
 
 ```
 let arr = [4,5,6];
@@ -276,7 +380,7 @@ for(let i of arr) {
 
 <hr />
 
-## What will be the output? (related to arrays)
+## What will be the output? <mark>(Arrays)</mark>
 
 ```
 let arr = [4,5,6];
@@ -311,7 +415,7 @@ Note: null also treats as an object in javascript.
 
 <hr />
 
-## Can you guess the output?
+## Can you guess the output? <mark>(JS Run time)</mark>
 
 ```
 setTimeout(() => console.log("1"), 0);
@@ -334,7 +438,7 @@ console.log("5");
 
 <hr />
 
-## Can you guess the output?
+## Can you guess the output? <mark>(JS Run time)</mark>
 
 ```
 console.log(a);
@@ -363,7 +467,7 @@ ReferenceError: Cannot access 'b' before initialization
 
 <hr />
 
-## Can you guess the output?
+## Can you guess the output? <mark>(JS Run time)</mark>
 
 ```
 function xyz() {
@@ -386,7 +490,7 @@ xyz();
 1
 ```
 
-## Can you achieve the expected output for below code?
+## Can you achieve the expected output for below code? <mark>(Recursion)</mark>
 
 ```
 const json = [
@@ -445,3 +549,96 @@ getNames(json);
 
 console.log(result);
 ```
+
+<hr />
+
+## Can you guess the output? <mark>(Functions)</mark>
+
+```
+(function(x) {
+  return (function(y) {
+    console.log(x);
+  })(1)
+})(2);
+```
+
+**Output**
+
+```
+2
+```
+
+<hr />
+
+## Can you guess the output? <mark>(Scope and setTimeout)</mark>
+
+```
+for(let i=0; i<5; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);
+}
+```
+
+**Output**
+
+Note: Every thing will be printed after each second
+
+```
+0
+1
+2
+3
+4
+```
+
+<hr />
+
+## Can you guess the output? <mark>(setTimeout)</mark>
+
+```
+function sleepSort(arr) {
+	arr.forEach((n) => setTimeout(() => console.log(n), n))
+}
+
+const arr = [9, 5, 3, 99, 11, 2, 0]
+sleepSort(arr)
+```
+
+**Output**
+
+```
+0
+2
+3
+5
+9
+11
+99
+```
+
+<hr />
+
+## Can you guess the output? <mark>(Functions)</mark>
+
+```
+var x = 20;
+
+function printX() {
+  console.log(x);
+  var x = 21;
+}
+
+printX();
+```
+
+**Output**
+
+Reason: First global x (20) will be hoisted in global object, and function will also be hoisted, then as hoisting is a two step process so after finishing the global variables, it will hoist the local variables which is the inner x (21) inside the Local object as it is a local variable.
+When the code will start running, first x will be assigned to 20 which is in global memory, then inside function x will be consoled and as the local x is still undefined so it will print undefined.
+
+```
+undefined
+```
+
+<hr />
